@@ -1,0 +1,405 @@
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables de colores basadas en el branding de Micro Tracker */
+:root {
+    --primary-green: #6B7A5A;      /* Verde oliva del logo */
+    --light-green: #A8B89A;        /* Verde más claro */
+    --background-cream: #F5F1EB;   /* Beige/crema del fondo */
+    --accent-orange: #D4A574;      /* Naranja/durazno del hongo */
+    --text-dark: #4A5240;          /* Verde oscuro para texto */
+    --text-light: #8A9580;         /* Verde claro para texto secundario */
+    --white: #FFFFFF;
+    --shadow: rgba(107, 122, 90, 0.1);
+}
+
+/* Tipografía */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-cream);
+    font-size: 16px;
+}
+
+/* Contenedor principal */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--white);
+    box-shadow: 0 0 30px var(--shadow);
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--background-cream) 0%, var(--white) 100%);
+    padding: 2rem 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(107, 122, 90, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* Contenido principal */
+.main-content {
+    flex: 1;
+    padding: 3rem 2rem;
+}
+
+.content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-green);
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-orange), var(--light-green));
+    border-radius: 2px;
+}
+
+/* Contenido legal */
+.legal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.legal-section {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--light-green);
+    box-shadow: 0 4px 20px var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.legal-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px var(--shadow);
+    border-left-color: var(--accent-orange);
+}
+
+.legal-section.highlight {
+    background: linear-gradient(135deg, var(--background-cream) 0%, var(--white) 100%);
+    border-left-color: var(--accent-orange);
+    border-left-width: 6px;
+}
+
+.legal-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.legal-text:last-child {
+    margin-bottom: 0;
+}
+
+.legal-text strong {
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 0;
+        box-shadow: none;
+    }
+    
+    .header {
+        padding: 1.5rem 0;
+    }
+    
+    .logo {
+        max-width: 150px;
+    }
+    
+    .main-content {
+        padding: 2rem 1rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .legal-section {
+        padding: 1.5rem;
+        margin: 0 0.5rem;
+    }
+    
+    .legal-text {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    .footer {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.75rem;
+    }
+    
+    .legal-section {
+        padding: 1.25rem;
+        margin: 0;
+    }
+    
+    .legal-text {
+        font-size: 0.95rem;
+    }
+}
+
+/* Animaciones suaves */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.legal-section {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.legal-section:nth-child(1) { animation-delay: 0.1s; }
+.legal-section:nth-child(2) { animation-delay: 0.2s; }
+.legal-section:nth-child(3) { animation-delay: 0.3s; }
+.legal-section:nth-child(4) { animation-delay: 0.4s; }
+.legal-section:nth-child(5) { animation-delay: 0.5s; }
+.legal-section:nth-child(6) { animation-delay: 0.6s; }
+.legal-section:nth-child(7) { animation-delay: 0.7s; }
+
+/* Efectos de hover mejorados */
+.legal-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(168, 184, 154, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+.legal-section:hover::before {
+    opacity: 1;
+}
+
+.legal-section {
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+/* Estilos adicionales para interacciones JavaScript */
+.legal-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.legal-section.clicked {
+    transform: translateY(-2px) scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+/* Estilos para impresión */
+@media print {
+    .printing {
+        background: white !important;
+    }
+    
+    .header {
+        background: white !important;
+        box-shadow: none !important;
+    }
+    
+    .legal-section {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .footer {
+        background: white !important;
+        color: black !important;
+        border-top: 1px solid #ddd;
+    }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Modo oscuro (respeta preferencias del sistema) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-green: #8A9580;
+        --light-green: #A8B89A;
+        --background-cream: #2A2A2A;
+        --accent-orange: #E6B885;
+        --text-dark: #E0E0E0;
+        --text-light: #B0B0B0;
+        --white: #1A1A1A;
+        --shadow: rgba(0, 0, 0, 0.3);
+    }
+    
+    .container {
+        background-color: var(--white);
+        border: 1px solid #333;
+    }
+    
+    .legal-section {
+        background: #222;
+        border-left-color: var(--light-green);
+    }
+    
+    .legal-section.highlight {
+        background: linear-gradient(135deg, #2A2A2A 0%, #222 100%);
+    }
+}
+
+/* Estilos para focus mejorado */
+.legal-section:focus-within {
+    outline: 2px solid var(--accent-orange);
+    outline-offset: 2px;
+}
+
+/* Animación de carga suave */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Mejoras para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+    .legal-section:hover {
+        transform: none;
+        box-shadow: 0 4px 20px var(--shadow);
+    }
+    
+    .legal-section:active {
+        transform: scale(0.98);
+    }
+    
+    .logo:hover {
+        transform: scale(1);
+    }
+}
+
+/* Estilos para pantallas muy pequeñas */
+@media (max-width: 320px) {
+    .title {
+        font-size: 1.5rem;
+    }
+    
+    .legal-section {
+        padding: 1rem;
+        border-radius: 8px;
+    }
+    
+    .legal-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* Estilos para pantallas muy grandes */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .content-wrapper {
+        max-width: 1000px;
+    }
+    
+    .title {
+        font-size: 3rem;
+    }
+    
+    .legal-text {
+        font-size: 1.2rem;
+    }
+}
+
